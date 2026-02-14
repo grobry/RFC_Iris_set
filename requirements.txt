@@ -1,0 +1,6 @@
+Flask==2.1.2
+redis==4.3.4
+scikit-learn==1.8.0
+joblib
+numpy
+Werkzeug==2.2.2

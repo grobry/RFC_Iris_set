@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+    depends_on: 
+      redis:
+        condition: service_healthy
+    healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost/health || exit 1"]
+    networks:
+      - ml-network
+      
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+     test: ["CMD", "redis-cli", "ping"]
+     retries: 3
+     interval: 5s
+    networks:
+      - ml-network
+      
+volumes:
+  redis-data:
+
+networks:
+  ml-network:
+    driver: bridge
