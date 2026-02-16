@@ -11,9 +11,9 @@ spec:
   template:
     metadata:
       labels:
-        apps: redis
+        app: redis
     spec:
       containers:
-        name: redis
+      - name: redis
         image: redis:alpine
         ports:

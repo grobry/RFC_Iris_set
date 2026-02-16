@@ -11,10 +11,10 @@ spec:
   template:
     metadata:
       labels:
-        apps: webapp
+        app: webapp
     spec:
       containers:
-        name: webapp
+      - name: webapp
         image: bijan588/a4_v2-web:latest
         ports: 
         env:
