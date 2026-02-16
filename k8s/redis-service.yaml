@@ -4,7 +4,7 @@ metadata:
   name: redis
 spec:
   selector:
-    app.kubernetes.io/name: RedisAPP
+    app.kubernetes.io/name: ClusterIP
   ports:
   - protocol: TCP
     port: 6379
